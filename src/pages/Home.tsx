@@ -1,67 +1,107 @@
-import { ChevronDown, Star, Heart, BrainCircuit, Calendar, CheckCircle2 } from 'lucide-react';
+import { Star, Heart, BrainCircuit, Calendar, CheckCircle2 } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
 import { FadeIn, StaggerContainer, StaggerItem } from '../components/FadeIn';
+import { TrackedLink } from '../components/tracking/TrackedLink';
+import { TrackedButton } from '../components/tracking/TrackedButton';
+import { ROUTES } from '../lib/routes';
+import { business } from '../lib/siteConfig';
+import { Seo } from '../components/seo/Seo';
 import { useState } from 'react';
 
-export default function Home({ setPage }: { setPage: (page: string) => void }) {
+export default function Home() {
   const [heroError, setHeroError] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <div className="w-full">
+      <Seo
+        title="The Meadows Care Home | Residential & Dementia Care in Scartho, Grimsby"
+        description="A warm, CQC-rated care home in Scartho, Grimsby offering residential care, dementia care and respite care for up to 36 residents. Arrange a visit today."
+        path={ROUTES.home}
+      />
       {/* Hero Section */}
-      <section className="relative h-screen min-h-[100vh] flex items-center overflow-hidden">
+      <section className="relative flex min-h-[690px] h-auto items-center overflow-hidden md:h-[92vh] md:min-h-[720px]">
         <div className="absolute inset-0 w-full h-full">
           <img referrerPolicy="no-referrer" 
-            src={heroError ? "https://picsum.photos/seed/garden/2560/1440" : "/hero-image.jpg"} 
-            alt="The Meadows Care Home exterior" 
-            className="object-cover w-full h-full"
+            src={heroError ? "https://www.nelincs.gov.uk/assets/uploads/2024/01/Weelsby-woods-area-page-scaled.jpg" : "/hero-image.jpg"} 
+            alt="Green open space at Weelsby Woods in Grimsby" 
+            className="object-cover object-center w-full h-full"
             loading="eager"
             onError={() => setHeroError(true)}
             />
-          <div className="absolute inset-0 bg-[rgba(20,40,25,0.62)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(23,45,31,0.86)_0%,rgba(23,45,31,0.76)_52%,rgba(23,45,31,0.68)_100%)] md:bg-[linear-gradient(90deg,rgba(23,45,31,0.88)_0%,rgba(23,45,31,0.72)_42%,rgba(23,45,31,0.42)_100%)]" />
+          <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-sage-deep/45 to-transparent" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 w-full pt-[80px] pb-[15vh] flex justify-end">
-          <div className="max-w-3xl text-right">
+        <div className="relative z-10 max-w-7xl mx-auto w-full px-4 pt-32 pb-14 sm:px-6 sm:pt-36 md:px-6 md:pt-28 md:pb-16 lg:px-12">
+          <div className="max-w-3xl text-left">
             <StaggerContainer>
               <StaggerItem>
-                <div className="flex justify-end mb-6">
-                  <p className="uppercase text-white bg-sage rounded-full px-5 py-2 [text-shadow:0_1px_4px_rgba(0,0,0,0.2)] tracking-[0.14em] font-bold text-sm md:text-base shadow-lg">
-                    CQC RATED GOOD
-                  </p>
+                <div className="mb-7 flex flex-wrap items-center gap-3">
+                  <span className="inline-flex items-center rounded-full border border-sage-light/35 bg-sage px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-white shadow-[0_8px_22px_rgba(0,0,0,0.18)]">
+                    CQC Rated Good
+                  </span>
+                  <span className="text-sm font-bold uppercase tracking-[0.16em] text-white/78">
+                    Scartho, Grimsby
+                  </span>
                 </div>
               </StaggerItem>
               <StaggerItem>
-                <h1 className="!text-[#ffffff] font-[600] mb-8 leading-tight [text-shadow:0_2px_16px_rgba(0,0,0,0.5)] text-[clamp(48px,6vw,72px)]">
-                  Compassionate Care in the Heart of Grimsby
+                <h1 className="!text-white mb-7 max-w-4xl text-4xl font-semibold leading-[1.06] [text-shadow:0_3px_18px_rgba(0,0,0,0.42)] sm:text-5xl md:text-6xl lg:text-7xl">
+                  The Meadows Care Home
                 </h1>
               </StaggerItem>
               <StaggerItem>
-                <p className="text-[#f0ede8] mb-12 ml-auto max-w-2xl [text-shadow:0_1px_8px_rgba(0,0,0,0.45)] text-[19px] leading-[1.7]">
+                <p className="mb-5 max-w-xl text-sm font-bold uppercase tracking-[0.08em] text-gold-soft sm:text-base sm:tracking-[0.14em]">
+                  Residential, dementia and respite care
+                </p>
+              </StaggerItem>
+              <StaggerItem>
+                <p className="mb-9 max-w-2xl text-base leading-7 text-white/88 [text-shadow:0_1px_8px_rgba(0,0,0,0.35)] sm:text-lg sm:leading-8 md:text-xl">
+                  A calm, family-oriented home where residents are supported with dignity, warmth and person-centred care in the heart of Grimsby.
+                </p>
+              </StaggerItem>
+              <StaggerItem>
+                <p className="hidden">
                   A warm, welcoming care home offering residential, dementia, and respite care — where every resident is treated with dignity, respect, and genuine kindness.
                 </p>
               </StaggerItem>
               <StaggerItem>
-                <div className="flex flex-col sm:flex-row items-end sm:items-center justify-end gap-4">
-                  <button 
-                    onClick={() => setPage('contact')}
-                    className="w-full sm:w-auto px-[2.5rem] py-[1rem] bg-[#c8a96e] text-[#2c2b29] font-[700] text-[17px] rounded-[50px] transition-all shadow-[0_4px_20px_rgba(0,0,0,0.3)] hover:bg-[#a8884e] hover:-translate-y-[2px]"
+                <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+                  <TrackedButton
+                    event="book_a_visit_clicked"
+                    eventParams={{ button_location: 'home_hero' }}
+                    onClick={() => navigate(ROUTES.contact)}
+                    className="w-full rounded-full bg-gold px-8 py-4 text-center text-base font-bold text-text-dark shadow-[0_8px_28px_rgba(0,0,0,0.28)] transition-all hover:-translate-y-0.5 hover:bg-gold-soft sm:w-auto"
                   >
                     Arrange a Visit
-                  </button>
-                  <button 
-                    onClick={() => setPage('care')}
-                    className="w-full sm:w-auto px-[2.5rem] py-[1rem] bg-transparent border-[2px] border-[#ffffff] text-[#ffffff] font-[700] text-[17px] rounded-[50px] transition-all shadow-[0_4px_20px_rgba(0,0,0,0.3)] hover:bg-[#ffffff] hover:text-[#2c2b29] hover:-translate-y-[2px]"
+                  </TrackedButton>
+                  <Link
+                    to={ROUTES.care}
+                    className="w-full rounded-full border border-white/55 bg-white/8 px-8 py-4 text-center text-base font-bold text-white backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:bg-white hover:text-text-dark sm:w-auto"
                   >
-                    Learn About Our Care
-                  </button>
+                    Explore Our Care
+                  </Link>
+                </div>
+              </StaggerItem>
+              <StaggerItem>
+                <div className="mt-10 grid max-w-3xl grid-cols-1 gap-3 border-t border-white/20 pt-5 text-white/86 sm:mt-12 sm:grid-cols-3 sm:gap-4 sm:pt-6">
+                  <div>
+                    <p className="font-serif text-2xl text-gold-soft">36</p>
+                    <p className="text-sm font-bold uppercase tracking-[0.08em]">Residents maximum</p>
+                  </div>
+                  <div>
+                    <p className="font-serif text-2xl text-gold-soft">24/7</p>
+                    <p className="text-sm font-bold uppercase tracking-[0.08em]">Qualified care staff</p>
+                  </div>
+                  <div>
+                    <p className="font-serif text-2xl text-gold-soft">Local</p>
+                    <p className="text-sm font-bold uppercase tracking-[0.08em]">Established provider</p>
+                  </div>
                 </div>
               </StaggerItem>
             </StaggerContainer>
           </div>
-        </div>
-
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce flex flex-col items-center text-white/70">
-          <ChevronDown size={32} />
         </div>
       </section>
 
@@ -111,12 +151,12 @@ export default function Home({ setPage }: { setPage: (page: string) => void }) {
                   </div>
                   <h3 className="text-2xl mb-4 text-text-dark">{service.title}</h3>
                   <p className="text-text-mid mb-8 flex-1">{service.desc}</p>
-                  <button 
-                    onClick={() => setPage('care')}
+                  <Link
+                    to={ROUTES.care}
                     className="text-sage-deep font-bold tracking-wide hover:text-gold-deep flex items-center transition-colors mt-auto"
                   >
                     Find Out More <span className="ml-2 transition-transform group-hover:translate-x-1">→</span>
-                  </button>
+                  </Link>
                 </div>
               </StaggerItem>
             ))}
@@ -167,19 +207,19 @@ export default function Home({ setPage }: { setPage: (page: string) => void }) {
             <p className="text-lg text-text-mid mb-8">
               With a capacity for just 36 residents, we maintain a close-knit, homely atmosphere. From our beautiful, accessible gardens to our comfortable lounges, every space is designed for comfort. Above all, our ethos is simple: every resident is a unique individual, and we treat them with the respect and warmth they deserve.
             </p>
-            <button 
-              onClick={() => setPage('home-life')}
+            <Link
+              to={ROUTES.theHome}
               className="inline-flex items-center gap-2 bg-text-dark hover:bg-sage-deep text-white px-8 py-4 rounded-full font-bold transition-all hover:shadow-lg"
             >
               Discover The Home →
-            </button>
+            </Link>
           </FadeIn>
           
           <FadeIn className="lg:w-1/2 relative">
             <div className="absolute inset-0 bg-sage-light/20 rounded-[2rem] transform translate-x-4 translate-y-4" />
             <img referrerPolicy="no-referrer" 
-              src="https://picsum.photos/seed/elderly/1200/900" 
-              alt="Elderly care" 
+              src="https://images.unsplash.com/photo-1756312177475-eb9a92b6dc4f?auto=format&fit=crop&w=1200&q=82" 
+              alt="Older woman tending a small plant in a bright garden setting" 
               className="relative rounded-[2rem] shadow-xl w-full object-cover aspect-[4/3] transform transition-transform hover:scale-[1.02] duration-700"
               loading="lazy"
             />
@@ -233,16 +273,32 @@ export default function Home({ setPage }: { setPage: (page: string) => void }) {
               We'd love to show you around. Call us today or send a message and we'll get back to you promptly.
             </p>
             <div className="flex flex-col md:flex-row items-center justify-center gap-8 mb-10">
-              <a href="tel:01472823287" className="text-3xl font-serif font-bold hover:text-gold-soft transition-colors">01472 823287</a>
+              <TrackedLink
+                href={business.telephoneHref}
+                event="phone_call_clicked"
+                eventParams={{ button_location: 'home_contact_strip', link_type: 'tel' }}
+                className="text-3xl font-serif font-bold hover:text-gold-soft transition-colors"
+              >
+                {business.telephone}
+              </TrackedLink>
               <span className="hidden md:block w-px h-8 bg-sage-light/40" />
-              <a href="mailto:jamie@shirecarehomes.com" className="text-lg hover:text-gold-soft transition-colors">jamie@shirecarehomes.com</a>
+              <TrackedLink
+                href={business.emailHref}
+                event="email_clicked"
+                eventParams={{ button_location: 'home_contact_strip', link_type: 'mailto' }}
+                className="text-lg hover:text-gold-soft transition-colors"
+              >
+                {business.email}
+              </TrackedLink>
             </div>
-            <button 
-              onClick={() => setPage('contact')}
+            <TrackedButton
+              event="book_a_visit_clicked"
+              eventParams={{ button_location: 'home_contact_strip' }}
+              onClick={() => navigate(ROUTES.contact)}
               className="px-8 py-4 bg-gold hover:bg-gold-deep text-white font-bold rounded-full transition-all shadow-[0_0_20px_rgba(200,169,110,0.4)] hover:-translate-y-1"
             >
               Arrange a Visit
-            </button>
+            </TrackedButton>
           </FadeIn>
         </div>
       </section>

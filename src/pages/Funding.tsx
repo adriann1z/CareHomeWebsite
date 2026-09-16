@@ -1,9 +1,22 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Plus, Minus, Info, Landmark, HeartHandshake } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { FadeIn, StaggerContainer, StaggerItem } from '../components/FadeIn';
+import { TrackedButton } from '../components/tracking/TrackedButton';
+import { TrackedLink } from '../components/tracking/TrackedLink';
+import { Seo } from '../components/seo/Seo';
+import { StructuredData } from '../components/seo/StructuredData';
+import { ROUTES } from '../lib/routes';
+import { business } from '../lib/siteConfig';
+import { trackEvent } from '../lib/analytics';
 
-export default function Funding({ setPage }: { setPage: (page: string) => void }) {
+export default function Funding() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    trackEvent('fees_information_viewed', { page_path: ROUTES.funding });
+  }, []);
 
   const faqs = [
     {
@@ -42,12 +55,28 @@ export default function Funding({ setPage }: { setPage: (page: string) => void }
 
   return (
     <div className="w-full">
+      <Seo
+        title="Funding & Fees | Paying for Care at The Meadows, Grimsby"
+        description="Understand your options for funding residential and respite care in Grimsby, including self-funding, local authority support and NHS Continuing Healthcare."
+        path={ROUTES.funding}
+      />
+      <StructuredData
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: faqs.map((faq) => ({
+            '@type': 'Question',
+            name: faq.q,
+            acceptedAnswer: { '@type': 'Answer', text: faq.a },
+          })),
+        }}
+      />
       {/* Hero Banner */}
-      <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center bg-sage-deep overflow-hidden">
+      <section className="relative h-auto min-h-[340px] py-32 md:min-h-[420px] md:h-[42vh] lg:h-[50vh] flex items-center justify-center bg-sage-deep overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-sage-deep via-[#3a613d] to-[#2c4c2f]" />
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center mt-12">
           <FadeIn>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl text-cream font-medium mb-6">Funding & Support</h1>
+            <h1 className="page-hero-title text-4xl md:text-5xl lg:text-6xl font-medium mb-6">Funding & Support</h1>
             <p className="text-lg md:text-xl text-sage-pale max-w-2xl mx-auto">
               Understanding how to fund care can feel overwhelming. We're here to help guide you through every step.
             </p>
@@ -173,17 +202,33 @@ export default function Funding({ setPage }: { setPage: (page: string) => void }
               Speak to our friendly team today — we'll help you understand your options with no pressure and no jargon.
             </h2>
             <div className="flex flex-col md:flex-row items-center justify-center gap-6 mt-12">
-              <span className="text-2xl font-serif font-bold">01472 823287</span>
+              <TrackedLink
+                href={business.telephoneHref}
+                event="phone_call_clicked"
+                eventParams={{ button_location: 'funding_cta', link_type: 'tel' }}
+                className="text-2xl font-serif font-bold hover:text-gold-soft transition-colors"
+              >
+                {business.telephone}
+              </TrackedLink>
               <span className="hidden md:block w-2 h-2 rounded-full bg-sage-light" />
-              <span className="text-xl">jamie@shirecarehomes.com</span>
+              <TrackedLink
+                href={business.emailHref}
+                event="email_clicked"
+                eventParams={{ button_location: 'funding_cta', link_type: 'mailto' }}
+                className="text-xl hover:text-gold-soft transition-colors"
+              >
+                {business.email}
+              </TrackedLink>
             </div>
             <div className="mt-10">
-              <button 
-                onClick={() => setPage('contact')}
+              <TrackedButton
+                event="book_a_visit_clicked"
+                eventParams={{ button_location: 'funding_cta' }}
+                onClick={() => navigate(ROUTES.contact)}
                 className="px-10 py-4 bg-gold hover:bg-gold-deep text-white font-bold rounded-full transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
               >
                 Get in Touch
-              </button>
+              </TrackedButton>
             </div>
           </FadeIn>
         </div>

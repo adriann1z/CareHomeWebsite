@@ -1,14 +1,23 @@
 import { FadeIn } from '../components/FadeIn';
+import { TrackedLink } from '../components/tracking/TrackedLink';
+import { ROUTES } from '../lib/routes';
+import { business } from '../lib/siteConfig';
+import { Seo } from '../components/seo/Seo';
 
-export default function Care({ setPage }: { setPage: (page: string) => void }) {
+export default function Care() {
   return (
     <div className="w-full">
+      <Seo
+        title="Our Care Services | Residential, Dementia & Respite Care in Grimsby"
+        description="Residential care, dementia care and respite care in Grimsby, delivered with dignity and expertise at The Meadows in Scartho. Find the right care for your family."
+        path={ROUTES.care}
+      />
       {/* Hero Banner */}
-      <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center bg-sage-deep overflow-hidden">
+      <section className="relative h-auto min-h-[340px] py-32 md:min-h-[420px] md:h-[42vh] lg:h-[50vh] flex items-center justify-center bg-sage-deep overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-sage-deep via-[#3a613d] to-[#2c4c2f]" />
         <div className="relative z-10 max-w-3xl mx-auto px-6 text-center mt-12">
           <FadeIn>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl text-cream font-medium mb-6">Our Care Services</h1>
+            <h1 className="page-hero-title text-4xl md:text-5xl lg:text-6xl font-medium mb-6">Our Care Services</h1>
             <p className="text-lg md:text-xl text-sage-pale max-w-2xl mx-auto">
               Expert, compassionate care tailored to every individual — delivered with dignity, patience, and genuine kindness.
             </p>
@@ -19,12 +28,10 @@ export default function Care({ setPage }: { setPage: (page: string) => void }) {
       {/* Residential Care */}
       <section className="py-24 bg-cream overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-16 relative">
-          {/* Decorative Number */}
-          <div className="absolute top-0 right-0 lg:-right-10 text-[15rem] leading-none font-serif text-sage-light/10 select-none z-0">
-            01
-          </div>
-          
           <FadeIn className="lg:w-1/2 space-y-6 relative z-10">
+            <div className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-gold/40 bg-gold-soft/40 font-serif text-xl font-semibold text-gold-deep">
+              01
+            </div>
             <p className="eyebrow text-gold-deep">Day-to-Day Living Support</p>
             <h2 className="text-3xl md:text-5xl text-sage-deep">Residential Care</h2>
             
@@ -55,22 +62,14 @@ export default function Care({ setPage }: { setPage: (page: string) => void }) {
               ))}
             </ul>
             
-            <div className="pt-6 mt-6">
-              <button 
-                onClick={() => setPage('contact')}
-                className="px-8 py-4 bg-gold hover:bg-gold-deep text-white font-bold rounded-full transition-all shadow-md hover:shadow-lg transform hover:-translate-y-1"
-              >
-                Arrange a Visit
-              </button>
-            </div>
           </FadeIn>
 
           <FadeIn className="lg:w-1/2 relative z-10 group">
-            <div className="absolute inset-0 border-2 border-sage-light/30 rounded-[2rem] transform translate-x-4 translate-y-4 transition-transform group-hover:translate-x-2 group-hover:translate-y-2 duration-500" />
+            <div className="absolute inset-0 hidden sm:block border-2 border-sage-light/30 rounded-[2rem] transform translate-x-4 translate-y-4 transition-transform group-hover:translate-x-2 group-hover:translate-y-2 duration-500" />
             <img referrerPolicy="no-referrer" 
-              src="https://picsum.photos/seed/elderly/1200/1200" 
-              alt="Elderly women conversing" 
-              className="relative rounded-[2rem] w-full object-cover aspect-square shadow-soft"
+              src="https://images.unsplash.com/photo-1774537969499-f6904c24cad2?auto=format&fit=crop&w=1200&q=82" 
+              alt="Older woman being gently supported while walking outdoors" 
+              className="relative rounded-[1.5rem] sm:rounded-[2rem] w-full object-cover aspect-square shadow-soft"
               loading="lazy"
             />
           </FadeIn>
@@ -79,22 +78,21 @@ export default function Care({ setPage }: { setPage: (page: string) => void }) {
 
       {/* Dementia Care */}
       <section className="py-24 bg-sage-pale overflow-hidden relative">
-        <div className="absolute top-0 left-0 lg:-left-10 text-[15rem] leading-none font-serif text-sage/10 select-none z-0">
-          02
-        </div>
-
         <div className="max-w-7xl mx-auto px-6 flex flex-col-reverse lg:flex-row items-center gap-16 relative z-10">
           <FadeIn className="lg:w-1/2 group">
             <img referrerPolicy="no-referrer" 
-              src="https://picsum.photos/seed/compassion/1200/900" 
-              alt="Holding hands compassionate care" 
-              className="rounded-[2rem] w-full object-cover aspect-[4/3] shadow-mid"
+              src="https://images.unsplash.com/photo-1756312177475-eb9a92b6dc4f?auto=format&fit=crop&w=1200&q=82" 
+              alt="Older woman caring for a small plant in a calm garden setting" 
+              className="rounded-[1.5rem] sm:rounded-[2rem] w-full object-cover aspect-[4/3] shadow-mid"
               loading="lazy"
             />
           </FadeIn>
 
           <FadeIn className="lg:w-1/2 space-y-6">
-            <p className="eyebrow text-sage-deep">Specialist Understanding & Support</p>
+            <div className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-gold/40 bg-gold-soft/40 font-serif text-xl font-semibold text-gold-deep">
+              02
+            </div>
+            <p className="eyebrow text-gold-deep">Specialist Understanding & Support</p>
             <h2 className="text-3xl md:text-5xl text-text-dark">Dementia Care</h2>
             
             <p className="text-lg text-text-mid leading-relaxed">
@@ -132,12 +130,11 @@ export default function Care({ setPage }: { setPage: (page: string) => void }) {
 
       {/* Respite Care */}
       <section className="py-24 bg-cream-warm overflow-hidden relative">
-        <div className="absolute top-0 right-0 lg:-right-10 text-[15rem] leading-none font-serif text-sage-light/10 select-none z-0">
-          03
-        </div>
-
         <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-16 relative z-10">
           <FadeIn className="lg:w-1/2 space-y-6">
+            <div className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-gold/40 bg-gold-soft/40 font-serif text-xl font-semibold text-gold-deep">
+              03
+            </div>
             <p className="eyebrow text-gold-deep">Short-Term Stays, Full-Time Care</p>
             <h2 className="text-3xl md:text-5xl text-sage-deep">Respite Care</h2>
             
@@ -172,10 +169,10 @@ export default function Care({ setPage }: { setPage: (page: string) => void }) {
           </FadeIn>
 
           <FadeIn className="lg:w-1/2">
-            <div className="relative p-4 md:p-6 bg-white rounded-[2rem] shadow-mid">
+            <div className="relative p-3 sm:p-4 md:p-6 bg-white rounded-[1.5rem] sm:rounded-[2rem] shadow-mid">
               <img referrerPolicy="no-referrer" 
-                src="https://picsum.photos/seed/care/1200/900" 
-                alt="Caregiver holding elder's hand" 
+                src="https://images.unsplash.com/photo-1773418346667-f4e087414ea6?auto=format&fit=crop&w=1200&q=82" 
+                alt="Older person walking through a peaceful garden pathway" 
                 className="rounded-2xl w-full object-cover aspect-[4/3] shadow-inner"
                 loading="lazy"
               />
@@ -192,13 +189,15 @@ export default function Care({ setPage }: { setPage: (page: string) => void }) {
               Not sure which type of care is right for your loved one? Our friendly team is happy to talk things through — no obligation, just honest advice.
             </p>
             <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
-              <span className="text-cream font-bold text-xl">01472 823287</span>
-              <button 
-                onClick={() => setPage('contact')}
+              <span className="text-cream font-bold text-xl">{business.telephone}</span>
+              <TrackedLink
+                href={business.telephoneHref}
+                event="phone_call_clicked"
+                eventParams={{ button_location: 'care_cta_strip', link_type: 'tel' }}
                 className="px-8 py-3 bg-gold hover:bg-gold-soft text-text-dark font-bold rounded-full transition-all shadow-[0_0_20px_rgba(200,169,110,0.2)] hover:shadow-lg transform hover:-translate-y-1"
               >
                 Call Us Today
-              </button>
+              </TrackedLink>
             </div>
           </FadeIn>
         </div>

@@ -1,84 +1,46 @@
-# Care Home Website
+# The Meadows Care Home - website
 
-## Overview
-This project consists of a set of responsive websites developed for care home clients. The goal was to create clear, accessible, and user-friendly web interfaces that provide essential information to visitors, including services, contact details, and location.
+A React + Vite single-page site for The Meadows Care Home (Shire Care Homes), Scartho, Grimsby.
 
-The websites are designed with a focus on usability, accessibility, and performance, ensuring they can be easily used by a wide range of users, including older audiences.
+## Stack
 
----
+- React 19 + TypeScript, built with Vite
+- Tailwind CSS v4
+- `react-router-dom` for client-side routing (`/`, `/about`, `/our-care`, `/the-home`, `/funding-and-support`, `/contact`, `/privacy-policy`, `/cookie-policy`)
+- No backend - the enquiry form either POSTs to an external form endpoint (see below) or falls back to a `mailto:` hand-off
 
-## Features
+## Run locally
 
-- Responsive design for desktop, tablet, and mobile devices  
-- Clear navigation and user-friendly layout  
-- Informational pages for services, facilities, and contact details  
-- Integrated contact forms for enquiries  
-- Google Maps integration for location display  
-- Optimised for readability and accessibility  
+**Prerequisites:** Node.js
 
----
+1. `npm install`
+2. Copy `.env.example` to `.env` and fill in what you have (all variables are optional for local development - see table below)
+3. `npm run dev`
 
-## Tech Stack
+## Environment variables
 
-- HTML5  
-- CSS3  
-- JavaScript  
-- Google Maps API  
+| Variable | Purpose | Required? |
+|---|---|---|
+| `VITE_SITE_URL` | Production domain, used for canonical URLs, Open Graph tags, JSON-LD and the generated sitemap | Recommended for production; falls back to a placeholder otherwise |
+| `VITE_GA_MEASUREMENT_ID` | GA4 Measurement ID. Analytics stays fully disabled (and the site still works) if unset | Optional |
+| `VITE_ENQUIRY_FORM_ENDPOINT` | Where the enquiry form POSTs. If unset, the form opens a pre-filled `mailto:` instead | Optional |
+| `VITE_ALLOW_INDEXING` | Set to `false` on staging/preview deployments to keep them out of search engines | Optional (defaults to allowed) |
 
----
+See `docs/analytics-setup.md`, `docs/search-console-setup.md` and `docs/business-info-checklist.md` for more detail.
 
-## Project Structure
+## Scripts
 
-/css        Stylesheets  
-/js         JavaScript functionality  
-/images     Media assets  
-/index.html Main entry point  
+- `npm run dev` - start the dev server (regenerates `public/sitemap.xml`/`robots.txt` first)
+- `npm run build` - production build (regenerates SEO files first)
+- `npm run lint` - TypeScript type-check (`tsc --noEmit`)
+- `npm run seo:generate` - manually regenerate `public/sitemap.xml` and `public/robots.txt`
 
----
+## Cookies, analytics & privacy
 
-## Getting Started
+This site implements a first-party cookie consent system (Necessary / Analytics / Marketing categories), a consent-gated GA4 analytics wrapper with Google Consent Mode v2, and conversion event tracking on key enquiry actions (calls, emails, directions, "arrange a visit", enquiry form). See:
 
-Clone the repository:
-git clone https://github.com/adriann1z/CareHomeWebsite.git  
-cd CareHomeWebsite  
-
-Open the project:
-- Open `index.html` in your browser  
-- Or use a local development server (e.g. VS Code Live Server)
-
----
-
-## Development Focus
-
-- Building accessible and easy-to-navigate interfaces  
-- Ensuring compatibility across devices and browsers  
-- Maintaining clean and maintainable front-end code  
-- Working with real client requirements and iterative feedback  
-
----
-
-## Applications
-
-This project demonstrates:
-
-- Front-end web development skills  
-- Responsive design principles  
-- Client-focused development  
-- Practical deployment of small-scale web solutions  
-
----
-
-## Future Improvements
-
-- Add backend integration for form handling  
-- Improve SEO and performance optimisation  
-- Enhance accessibility compliance (WCAG standards)  
-- Introduce CMS support for easier content updates  
-
----
-
-## Author
-
-Adrian Wrezel  
-Computer Science Graduate  
-GitHub: https://github.com/adriann1z
+- `src/lib/consent.ts`, `src/context/ConsentContext.tsx`, `src/components/cookies/` - consent system
+- `src/lib/analytics.ts`, `src/components/tracking/` - analytics + conversion tracking
+- `src/components/seo/` - per-page metadata and JSON-LD structured data
+- `src/pages/PrivacyPolicy.tsx`, `src/pages/CookiePolicy.tsx` - policy pages (contain explicit placeholders where business/legal sign-off is required)
+- `docs/business-info-checklist.md` - everything still needed from the business before going live

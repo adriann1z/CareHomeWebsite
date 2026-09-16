@@ -1,32 +1,32 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;500;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --color-sage: #7a9e7e;
-  --color-sage-light: #a8c5ac;
-  --color-sage-pale: #e8f2e9;
-  --color-sage-deep: #4e7a52;
+  --color-sage: #50775e;
+  --color-sage-light: #84a890;
+  --color-sage-pale: #eef3ef;
+  --color-sage-deep: #2A4838;
 
-  --color-cream: #faf7f2;
-  --color-cream-warm: #f5f0e8;
+  --color-cream: #FDFDFD;
+  --color-cream-warm: #F6F3EC;
 
   --color-blue-soft: #dce8f0;
   --color-blue-deep: #3d6e8a;
 
-  --color-gold: #c8a96e;
-  --color-gold-deep: #a8884e;
-  --color-gold-soft: #e6d6b4;
+  --color-gold: #C0A164;
+  --color-gold-deep: #A3854E;
+  --color-gold-soft: #EFE4CD;
 
-  --color-text-dark: #2c2b29;
-  --color-text-mid: #5c5850;
-  --color-text-light: #8c8880;
+  --color-text-dark: #2A4838;
+  --color-text-mid: #4A6355;
+  --color-text-light: #8B9D93;
 
   --font-sans: 'Lato', sans-serif;
   --font-serif: 'Playfair Display', serif;
 
-  --shadow-soft: 0 10px 30px rgba(122, 158, 126, 0.10);
-  --shadow-mid: 0 18px 40px rgba(122, 158, 126, 0.14);
-  --shadow-lift: 0 26px 60px rgba(122, 158, 126, 0.18);
+  --shadow-soft: 0 10px 30px rgba(42, 72, 56, 0.08);
+  --shadow-mid: 0 18px 40px rgba(42, 72, 56, 0.12);
+  --shadow-lift: 0 26px 60px rgba(42, 72, 56, 0.16);
 }
 
 body {
@@ -48,6 +48,51 @@ h1, h2, h3, h4, h5, h6 {
   @apply uppercase tracking-[0.1em] text-sm font-bold;
 }
 
+.page-hero-title {
+  color: #FFF1A8 !important;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.35);
+}
+
 .glass-panel {
   @apply bg-white/70 backdrop-blur-xl border border-sage/20 shadow-soft;
+}
+
+@media (max-width: 767px) {
+  body {
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
+  section[class*="py-24"] {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  section[class*="py-20"] {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  section[class*="h-[50vh]"] {
+    min-height: 340px;
+    height: auto;
+    padding-top: 7.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .page-hero-title {
+    font-size: 2.6rem;
+    line-height: 1.08;
+  }
+
+  footer {
+    padding-bottom: 6rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  section[class*="py-24"] {
+    padding-top: 5.5rem;
+    padding-bottom: 5.5rem;
+  }
 }

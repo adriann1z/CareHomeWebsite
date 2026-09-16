@@ -1,15 +1,22 @@
 import { ShieldCheck, Heart, Users, Home } from 'lucide-react';
 import { FadeIn, StaggerContainer, StaggerItem } from '../components/FadeIn';
+import { Seo } from '../components/seo/Seo';
+import { ROUTES } from '../lib/routes';
 
 export default function About() {
   return (
     <div className="w-full">
+      <Seo
+        title="About Us | The Meadows Care Home, Scartho, Grimsby"
+        description="Learn about The Meadows, an established residential care home in Scartho, Grimsby, and the values, team and CQC-regulated standards behind our care."
+        path={ROUTES.about}
+      />
       {/* Hero Banner */}
-      <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center bg-sage-deep overflow-hidden">
+      <section className="relative h-auto min-h-[340px] py-32 md:min-h-[420px] md:h-[42vh] lg:h-[50vh] flex items-center justify-center bg-sage-deep overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-sage-deep via-[#3a613d] to-[#2c4c2f]" />
         <div className="relative z-10 max-w-3xl mx-auto px-6 text-center mt-12">
           <FadeIn>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl text-cream font-medium mb-6">About The Meadows</h1>
+            <h1 className="page-hero-title text-4xl md:text-5xl lg:text-6xl font-medium mb-6">About The Meadows</h1>
             <p className="text-lg md:text-xl text-sage-pale max-w-2xl mx-auto">
               A trusted care home in the heart of Scartho, dedicated to delivering person-centred care with warmth and respect.
             </p>
@@ -21,11 +28,11 @@ export default function About() {
       <section className="py-24 bg-cream">
         <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-16">
           <FadeIn className="lg:w-1/2 relative group">
-            <div className="absolute inset-0 bg-sage-pale rounded-[2rem] transform -translate-x-4 -translate-y-4 transition-transform group-hover:translate-x-0 group-hover:translate-y-0 duration-500" />
+            <div className="absolute inset-0 hidden sm:block bg-sage-pale rounded-[2rem] transform -translate-x-4 -translate-y-4 transition-transform group-hover:translate-x-0 group-hover:translate-y-0 duration-500" />
             <img referrerPolicy="no-referrer" 
-              src="https://picsum.photos/seed/exterior/1200/900" 
-              alt="The Meadows exterior garden" 
-              className="relative rounded-[2rem] shadow-mid w-full object-cover aspect-[4/3]"
+              src="/imagemeadows.png" 
+              alt="The Meadows Care Home exterior and sign" 
+              className="relative rounded-[1.5rem] sm:rounded-[2rem] shadow-mid w-full object-cover object-[18%_center] aspect-[4/3]"
               loading="lazy"
             />
           </FadeIn>
@@ -105,7 +112,7 @@ export default function About() {
               <div className="absolute inset-0 rounded-full border border-gold-deep/20 scale-125 animate-ping opacity-20" />
             </div>
             <h2 className="text-3xl md:text-5xl text-sage-deep mb-8">Our Dedicated Team</h2>
-            <div className="space-y-6 text-left p-10 bg-white rounded-[2rem] shadow-soft border border-sage-light/10">
+            <div className="space-y-6 text-left p-6 sm:p-10 bg-white rounded-[1.5rem] sm:rounded-[2rem] shadow-soft border border-sage-light/10">
               <p className="text-lg text-text-mid leading-relaxed">
                 The heart of The Meadows lies in our people. We carefully select our staff not just for their qualifications and experience, but for their genuine passion, empathy, and dedication to elderly care. They treat residents with the same thoughtfulness and affection they would show their own family.
               </p>

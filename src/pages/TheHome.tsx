@@ -1,15 +1,28 @@
+import { useEffect } from 'react';
 import { BedDouble, Armchair, UtensilsCrossed, TreeDeciduous, Paintbrush, BookOpen } from 'lucide-react';
 import { FadeIn, StaggerContainer, StaggerItem } from '../components/FadeIn';
+import { Seo } from '../components/seo/Seo';
+import { ROUTES } from '../lib/routes';
+import { trackEvent } from '../lib/analytics';
 
 export default function TheHome() {
+  useEffect(() => {
+    trackEvent('room_information_viewed', { page_path: ROUTES.theHome });
+  }, []);
+
   return (
     <div className="w-full">
+      <Seo
+        title="The Home & Facilities | The Meadows Care Home, Scartho"
+        description="Take a look inside The Meadows: private single bedrooms, communal lounges, a dining room and accessible gardens at our Scartho, Grimsby care home."
+        path={ROUTES.theHome}
+      />
       {/* Hero Banner */}
-      <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center bg-sage-deep overflow-hidden">
+      <section className="relative h-auto min-h-[340px] py-32 md:min-h-[420px] md:h-[42vh] lg:h-[50vh] flex items-center justify-center bg-sage-deep overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-sage-deep via-[#3a613d] to-[#2c4c2f]" />
         <div className="relative z-10 max-w-3xl mx-auto px-6 text-center mt-12">
           <FadeIn>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl text-cream font-medium mb-6">Our Home</h1>
+            <h1 className="page-hero-title text-4xl md:text-5xl lg:text-6xl font-medium mb-6">Our Home</h1>
             <p className="text-lg md:text-xl text-sage-pale max-w-2xl mx-auto">
               A warm, comfortable and beautifully maintained home in the heart of Scartho.
             </p>
@@ -134,18 +147,36 @@ export default function TheHome() {
 
           <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[280px]">
             {[
-              "https://picsum.photos/seed/room/800/800", // Bright interior
-              "https://picsum.photos/seed/plants/800/800", // Garden
-              "https://picsum.photos/seed/food/800/800", // Dining set
-              "https://picsum.photos/seed/activity/800/800", // Activity / crafts
-              "https://picsum.photos/seed/bedroom/800/800", // Bedroom
-              "https://picsum.photos/seed/smiles/800/800"  // Caregiver
-            ].map((src, i) => (
+              {
+                src: "https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=1000&q=82",
+                alt: "Warm lounge with comfortable seating and soft natural light",
+              },
+              {
+                src: "https://www.nelincs.gov.uk/assets/uploads/2024/01/Weelsby-woods-area-page-scaled.jpg",
+                alt: "Green woodland and open grass in Grimsby",
+              },
+              {
+                src: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1000&q=82",
+                alt: "Elegant dining room arranged for a welcoming meal",
+              },
+              {
+                src: "https://images.unsplash.com/photo-1730295003936-1f0666fe6707?auto=format&fit=crop&w=1000&q=82",
+                alt: "Older adult painting during a creative activity",
+              },
+              {
+                src: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=82",
+                alt: "Calm, neatly made bedroom with soft neutral furnishings",
+              },
+              {
+                src: "https://images.unsplash.com/photo-1774537969499-f6904c24cad2?auto=format&fit=crop&w=1000&q=82",
+                alt: "Older woman being supported outdoors in a garden",
+              },
+            ].map((image, i) => (
               <StaggerItem key={i} className={`rounded-[2rem] overflow-hidden shadow-soft relative group ${i === 1 || i === 4 ? 'lg:col-span-2' : ''}`}>
                 <div className="absolute inset-0 bg-sage-deep/10 group-hover:bg-transparent transition-colors z-10 pointer-events-none" />
                 <img referrerPolicy="no-referrer" 
-                  src={src} 
-                  alt={`The Meadows living space ${i+1}`}
+                  src={image.src} 
+                  alt={image.alt}
                   loading="lazy"
                   className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-[1.03]" 
                 />
