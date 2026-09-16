@@ -5,8 +5,12 @@ import {defineConfig, loadEnv} from 'vite';
 
 export default defineConfig(({mode}) => {
   const env = loadEnv(mode, '.', '');
+  const repositoryName = 'CareHomeWebsite';
+  const isGitHubPages = process.env.GITHUB_PAGES === 'true';
+
   return {
     plugins: [react(), tailwindcss()],
+    base: isGitHubPages ? `/${repositoryName}/` : '/',
     define: {
       'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY),
     },
