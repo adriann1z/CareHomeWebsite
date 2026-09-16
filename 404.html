@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Meadows Care Home | Residential & Dementia Care in Scartho, Grimsby</title>
+    <meta
+      name="description"
+      content="A warm, CQC-rated care home in Scartho, Grimsby offering residential care, dementia care and respite care for up to 36 residents. Arrange a visit today."
+    />
+    <!--
+      This is a client-rendered SPA — src/components/seo/Seo.tsx swaps the
+      title/description/canonical/OG tags per route once React mounts.
+      These static tags are the fallback for crawlers/scrapers that don't
+      execute JavaScript (they will only ever see the home page's details,
+      regardless of the shared URL — see docs/seo-and-search-console.md).
+    -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="The Meadows Care Home" />
+    <meta property="og:title" content="The Meadows Care Home | Residential & Dementia Care in Scartho, Grimsby" />
+    <meta
+      property="og:description"
+      content="A warm, CQC-rated care home in Scartho, Grimsby offering residential care, dementia care and respite care for up to 36 residents."
+    />
+    <meta property="og:image" content="/CareHomeWebsite/hero-image.jpg" />
+    <script type="module" crossorigin src="/CareHomeWebsite/assets/index-5mBxeP95.js"></script>
+    <link rel="stylesheet" crossorigin href="/CareHomeWebsite/assets/index-KMzl9aEN.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      // Protective setter to prevent polyfills from crashing when trying to overwrite window.fetch
+      try {
+        const originalFetch = window.fetch;
+        if (originalFetch) {
+          Object.defineProperty(window, 'fetch', {
+            get: () => originalFetch,
+            set: () => {
+              console.warn('Prevented attempting to overwrite window.fetch');
+            },
+            configurable: true
+          });
+        }
+      } catch(e) {}
+    </script>
+  </body>
+</html>
+

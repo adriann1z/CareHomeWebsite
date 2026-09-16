@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://adriann1z.github.io/CareHomeWebsite/sitemap.xml
