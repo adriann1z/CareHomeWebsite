@@ -18,18 +18,18 @@ export default function Home() {
         path={ROUTES.home}
       />
       {/* Hero Section */}
-      <section className="relative flex min-h-[690px] items-center overflow-hidden md:min-h-[680px] md:h-[86vh]">
+      <section className="relative flex min-h-[820px] items-center overflow-hidden sm:min-h-[740px] md:min-h-[680px] md:h-[76vh] md:max-h-[760px]">
         <div className="absolute inset-0 w-full h-full">
           <img
             src={`${import.meta.env.BASE_URL}hero-image.png.jpeg`}
             alt="The Meadows Care Home building and sign in Scartho, Grimsby"
-            className="object-cover object-[35%_center] md:object-center w-full h-full"
+            className="object-cover object-[35%_center] md:object-[center_58%] w-full h-full"
             loading="eager"
             />
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(15,32,22,0.24)_0%,rgba(15,32,22,0.62)_44%,rgba(15,32,22,0.88)_100%)] md:bg-[linear-gradient(90deg,rgba(15,32,22,0.12)_0%,rgba(15,32,22,0.25)_35%,rgba(15,32,22,0.82)_72%,rgba(15,32,22,0.9)_100%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(15,32,22,0.16)_0%,rgba(15,32,22,0.36)_44%,rgba(15,32,22,0.65)_100%)] md:bg-[linear-gradient(90deg,rgba(15,32,22,0.08)_0%,rgba(15,32,22,0.18)_35%,rgba(15,32,22,0.68)_72%,rgba(15,32,22,0.76)_100%)]" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto w-full px-4 pt-32 pb-10 sm:px-6 md:px-8 md:pt-24 md:pb-12 lg:px-12">
+        <div className="relative z-10 max-w-7xl mx-auto w-full px-4 pt-32 pb-28 sm:px-6 md:px-8 md:pt-24 md:pb-24 lg:px-12">
           <div className="max-w-2xl ml-auto text-left">
             <StaggerContainer>
               <StaggerItem>
@@ -80,39 +80,21 @@ export default function Home() {
                   </Link>
                 </div>
               </StaggerItem>
-              <StaggerItem>
-                <div className="mt-10 grid max-w-3xl grid-cols-1 gap-3 border-t border-white/20 pt-5 text-white/86 sm:mt-12 sm:grid-cols-3 sm:gap-4 sm:pt-6">
-                  <div>
-                    <p className="font-serif text-2xl text-gold-soft">36</p>
-                    <p className="text-sm font-bold uppercase tracking-[0.08em]">Residents maximum</p>
-                  </div>
-                  <div>
-                    <p className="font-serif text-2xl text-gold-soft">24/7</p>
-                    <p className="text-sm font-bold uppercase tracking-[0.08em]">Qualified care staff</p>
-                  </div>
-                  <div>
-                    <p className="font-serif text-2xl text-gold-soft">Local</p>
-                    <p className="text-sm font-bold uppercase tracking-[0.08em]">Established provider</p>
-                  </div>
-                </div>
-              </StaggerItem>
             </StaggerContainer>
           </div>
         </div>
-      </section>
-
-      {/* Trust Bar */}
-      <div className="bg-cream border-b border-sage-light/20 relative z-20">
-        <div className="max-w-7xl mx-auto px-6 py-6 overflow-x-auto hide-scrollbar">
-          <ul className="flex items-center justify-between min-w-max md:min-w-0 gap-8 md:gap-4 text-sm font-medium text-text-mid">
-            <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-sage-light" /> CQC Rated Good</li>
-            <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-sage-light" /> 36 Residents Maximum</li>
-            <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-sage-light" /> 24/7 Qualified Care Staff</li>
-            <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-sage-light" /> Person-Centred Care Plans</li>
-            <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-sage-light" /> Established Local Care Provider</li>
+        <div className="absolute inset-x-0 bottom-0 z-20 border-t border-white/20 bg-sage-deep/35 backdrop-blur-[2px]">
+          <div className="max-w-7xl mx-auto px-6 py-4 overflow-x-auto hide-scrollbar">
+          <ul className="flex items-center justify-between min-w-max md:min-w-0 gap-8 md:gap-4 text-sm font-medium text-white">
+            <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-gold-soft" /> CQC Rated Good</li>
+            <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-gold-soft" /> 36 Residents Maximum</li>
+            <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-gold-soft" /> 24/7 Qualified Care Staff</li>
+            <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-gold-soft" /> Person-Centred Care Plans</li>
+            <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-gold-soft" /> Established Local Care Provider</li>
           </ul>
+          </div>
         </div>
-      </div>
+      </section>
 
       {/* Services Overview */}
       <section className="py-24 bg-cream">
