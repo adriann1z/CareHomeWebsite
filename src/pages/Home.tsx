@@ -32,7 +32,7 @@ export default function Home() {
 
       <section className="relative isolate flex min-h-[610px] items-end overflow-hidden bg-sage-deep text-white sm:min-h-[660px] lg:min-h-[690px] lg:items-center">
         <img
-          src={`${import.meta.env.BASE_URL}hero-image.png.jpeg`}
+          src={`${import.meta.env.BASE_URL}hero-image.png.jpeg?v=b35c28c4`}
           alt="The Meadows Care Home sign and building in Scartho, Grimsby"
           className="absolute inset-0 -z-20 h-full w-full object-cover object-[30%_center] lg:object-[center_58%]"
           loading="eager"
