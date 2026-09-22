@@ -23,7 +23,7 @@ export interface SeoProps {
  */
 export function Seo({ title, description, path, image, noindex }: SeoProps) {
   const url = `${SITE_URL}${path}`;
-  const resolvedImage = image ? `${SITE_URL}${image}` : `${SITE_URL}/hero-image.png.jpeg`;
+  const resolvedImage = image ? `${SITE_URL}${image}` : `${SITE_URL}/meadows-front-photo.png`;
 
   return createPortal(
     <>
