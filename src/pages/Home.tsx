@@ -92,7 +92,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-cream py-20 sm:py-24 lg:py-28">
+      <section className="bg-cream-warm py-20 sm:py-24 lg:py-28">
         <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
           <FadeIn className="mx-auto mb-12 max-w-2xl text-center sm:mb-14">
             <p className="mb-4 text-xs font-bold uppercase text-gold-deep sm:text-sm">

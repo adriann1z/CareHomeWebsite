@@ -25,10 +25,10 @@ export default function App() {
       <ConsentProvider>
         <StructuredData data={buildLocalBusinessJsonLd()} />
         <RouteAnalytics />
-        <div className="min-h-screen flex flex-col relative w-full selection:bg-sage-light selection:text-white">
+        <div className="min-h-screen flex flex-col relative w-full bg-sage-deep selection:bg-sage-light selection:text-white">
           <Navigation />
 
-          <main className="flex-1 w-full">
+          <main className="w-full">
             <Routes>
               <Route path={ROUTES.home} element={<Home />} />
               <Route path={ROUTES.about} element={<About />} />
