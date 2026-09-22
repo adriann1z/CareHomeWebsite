@@ -30,7 +30,7 @@ export default function Home() {
         path={ROUTES.home}
       />
 
-      <section className="relative isolate flex min-h-[610px] items-end overflow-hidden bg-sage-deep text-white sm:min-h-[660px] lg:min-h-[690px] lg:items-center">
+      <section className="relative isolate flex min-h-[610px] items-end overflow-hidden bg-sage-deep text-white sm:min-h-[660px] lg:min-h-[max(690px,calc(100svh-8rem))] lg:items-center">
         <img
           src={`${import.meta.env.BASE_URL}meadows-front-photo.png`}
           alt="The Meadows Care Home sign and building in Scartho, Grimsby"
