@@ -1,11 +1,23 @@
-import { Star, Heart, BrainCircuit, Calendar, CheckCircle2 } from 'lucide-react';
+import { ArrowUpRight, BrainCircuit, CalendarDays, HeartHandshake, House, MapPin, ShieldCheck, UsersRound } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FadeIn, StaggerContainer, StaggerItem } from '../components/FadeIn';
-import { TrackedLink } from '../components/tracking/TrackedLink';
 import { TrackedButton } from '../components/tracking/TrackedButton';
 import { ROUTES } from '../lib/routes';
-import { business } from '../lib/siteConfig';
 import { Seo } from '../components/seo/Seo';
+
+const trustPoints = [
+  { icon: ShieldCheck, title: 'CQC Rated Good', detail: 'Quality you can trust' },
+  { icon: UsersRound, title: '36 Residents Maximum', detail: 'A close-knit community' },
+  { icon: HeartHandshake, title: '24/7 Qualified Care Staff', detail: 'Always here, always caring' },
+  { icon: House, title: 'Person-Centred Care Plans', detail: 'Tailored to individual needs' },
+  { icon: MapPin, title: 'Established Local Provider', detail: 'Proud to serve Grimsby' },
+];
+
+const careServices = [
+  { icon: HeartHandshake, title: 'Residential Care', description: 'A safe, comfortable home with dignity, companionship and support every day.' },
+  { icon: BrainCircuit, title: 'Dementia Care', description: 'Specialist, compassionate care in a nurturing and understanding environment.' },
+  { icon: CalendarDays, title: 'Respite Care', description: 'Short-term care giving you peace of mind, with the same high standards.' },
+];
 
 export default function Home() {
   const navigate = useNavigate();
@@ -17,267 +29,105 @@ export default function Home() {
         description="A warm, CQC-rated care home in Scartho, Grimsby offering residential care, dementia care and respite care for up to 36 residents. Arrange a visit today."
         path={ROUTES.home}
       />
-      {/* Hero Section */}
-      <section className="relative flex min-h-[820px] items-center overflow-hidden sm:min-h-[740px] md:min-h-[680px] md:h-[76vh] md:max-h-[760px]">
-        <div className="absolute inset-0 w-full h-full">
-          <img
-            src={`${import.meta.env.BASE_URL}hero-image.png.jpeg`}
-            alt="The Meadows Care Home building and sign in Scartho, Grimsby"
-            className="object-cover object-[35%_center] md:object-[center_58%] w-full h-full"
-            loading="eager"
-            />
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(15,32,22,0.16)_0%,rgba(15,32,22,0.36)_44%,rgba(15,32,22,0.65)_100%)] md:bg-[linear-gradient(90deg,rgba(15,32,22,0.08)_0%,rgba(15,32,22,0.18)_35%,rgba(15,32,22,0.68)_72%,rgba(15,32,22,0.76)_100%)]" />
-        </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto w-full px-4 pt-32 pb-28 sm:px-6 md:px-8 md:pt-24 md:pb-24 lg:px-12">
-          <div className="max-w-2xl ml-auto text-left">
-            <StaggerContainer>
-              <StaggerItem>
-                <div className="mb-7 flex flex-wrap items-center gap-3">
-                  <span className="inline-flex items-center rounded-full border border-sage-light/35 bg-sage px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-white shadow-[0_8px_22px_rgba(0,0,0,0.18)]">
-                    CQC Rated Good
-                  </span>
-                  <span className="text-sm font-bold uppercase tracking-[0.16em] text-white/78">
-                    Scartho, Grimsby
-                  </span>
-                </div>
-              </StaggerItem>
-              <StaggerItem>
-                <h1 className="!text-white mb-7 max-w-4xl text-4xl font-semibold leading-[1.06] [text-shadow:0_3px_18px_rgba(0,0,0,0.42)] sm:text-5xl md:text-6xl lg:text-7xl">
-                  The Meadows Care Home
-                </h1>
-              </StaggerItem>
-              <StaggerItem>
-                <p className="mb-5 max-w-xl text-sm font-bold uppercase tracking-[0.08em] text-gold-soft sm:text-base sm:tracking-[0.14em]">
-                  Residential, dementia and respite care
-                </p>
-              </StaggerItem>
-              <StaggerItem>
-                <p className="mb-9 max-w-2xl text-base leading-7 text-white/88 [text-shadow:0_1px_8px_rgba(0,0,0,0.35)] sm:text-lg sm:leading-8 md:text-xl">
-                  A calm, family-oriented home where residents are supported with dignity, warmth and person-centred care in the heart of Grimsby.
-                </p>
-              </StaggerItem>
-              <StaggerItem>
-                <p className="hidden">
-                  A warm, welcoming care home offering residential, dementia, and respite care — where every resident is treated with dignity, respect, and genuine kindness.
-                </p>
-              </StaggerItem>
-              <StaggerItem>
-                <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-                  <TrackedButton
-                    event="book_a_visit_clicked"
-                    eventParams={{ button_location: 'home_hero' }}
-                    onClick={() => navigate(ROUTES.contact)}
-                    className="w-full rounded-full bg-gold px-8 py-4 text-center text-base font-bold text-text-dark shadow-[0_8px_28px_rgba(0,0,0,0.28)] transition-all hover:-translate-y-0.5 hover:bg-gold-soft sm:w-auto"
-                  >
-                    Arrange a Visit
-                  </TrackedButton>
-                  <Link
-                    to={ROUTES.care}
-                    className="w-full rounded-full border border-white/55 bg-white/8 px-8 py-4 text-center text-base font-bold text-white backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:bg-white hover:text-text-dark sm:w-auto"
-                  >
-                    Explore Our Care
-                  </Link>
-                </div>
-              </StaggerItem>
-            </StaggerContainer>
-          </div>
-        </div>
-        <div className="absolute inset-x-0 bottom-0 z-20 border-t border-white/20 bg-sage-deep/35 backdrop-blur-[2px]">
-          <div className="max-w-7xl mx-auto px-6 py-4 overflow-x-auto hide-scrollbar">
-          <ul className="flex items-center justify-between min-w-max md:min-w-0 gap-8 md:gap-4 text-sm font-medium text-white">
-            <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-gold-soft" /> CQC Rated Good</li>
-            <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-gold-soft" /> 36 Residents Maximum</li>
-            <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-gold-soft" /> 24/7 Qualified Care Staff</li>
-            <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-gold-soft" /> Person-Centred Care Plans</li>
-            <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-gold-soft" /> Established Local Care Provider</li>
-          </ul>
+      <section className="relative isolate flex min-h-[610px] items-end overflow-hidden bg-sage-deep text-white sm:min-h-[660px] lg:min-h-[690px] lg:items-center">
+        <img
+          src={`${import.meta.env.BASE_URL}hero-image.png.jpeg`}
+          alt="The Meadows Care Home sign and building in Scartho, Grimsby"
+          className="absolute inset-0 -z-20 h-full w-full object-cover object-[30%_center] lg:object-[center_58%]"
+          loading="eager"
+          fetchPriority="high"
+        />
+        <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(20,39,29,0.1)_0%,rgba(20,39,29,0.3)_42%,rgba(20,39,29,0.86)_100%)] lg:bg-[linear-gradient(90deg,rgba(20,39,29,0.08)_0%,rgba(20,39,29,0.16)_38%,rgba(20,39,29,0.72)_68%,rgba(20,39,29,0.82)_100%)]" />
+
+        <div className="mx-auto w-full max-w-7xl px-5 pb-10 pt-28 sm:px-8 sm:pb-16 sm:pt-36 lg:px-12 lg:py-36">
+          <div className="ml-auto max-w-[640px]">
+            <div className="mb-5 flex flex-wrap items-center gap-x-4 gap-y-2 text-[11px] font-bold uppercase text-white sm:mb-7 sm:text-xs">
+              <span className="rounded-full border border-white/40 bg-sage-deep/45 px-4 py-2">CQC Rated Good</span>
+              <span className="tracking-[0.12em]">Scartho, Grimsby</span>
+            </div>
+            <h1 className="mb-4 max-w-[12ch] !text-white text-4xl font-semibold leading-[1.08] [text-shadow:0_2px_16px_rgba(0,0,0,0.28)] sm:mb-6 sm:text-5xl lg:text-6xl">
+              The Meadows Care Home
+            </h1>
+            <p className="mb-4 text-sm font-bold uppercase text-gold-soft sm:mb-5 sm:text-base">
+              Residential, Dementia and Respite Care
+            </p>
+            <p className="mb-6 max-w-[36rem] text-base leading-7 text-white/95 sm:mb-9 sm:text-lg sm:leading-8">
+              A calm, family-oriented home where residents are supported with dignity, warmth and person-centred care in the heart of Grimsby.
+            </p>
+            <div className="flex flex-wrap gap-3 sm:gap-4">
+              <TrackedButton
+                event="book_a_visit_clicked"
+                eventParams={{ button_location: 'home_hero' }}
+                onClick={() => navigate(ROUTES.contact)}
+                className="rounded-full bg-gold px-7 py-3.5 text-sm font-bold text-sage-deep shadow-[0_8px_24px_rgba(0,0,0,0.2)] transition-colors hover:bg-gold-soft sm:px-8 sm:py-4 sm:text-base"
+              >
+                Arrange a Visit
+              </TrackedButton>
+              <Link
+                to={ROUTES.care}
+                className="inline-flex items-center rounded-full border border-white/65 bg-sage-deep/25 px-7 py-3.5 text-sm font-bold text-white backdrop-blur-sm transition-colors hover:bg-white hover:text-sage-deep sm:px-8 sm:py-4 sm:text-base"
+              >
+                Explore Our Care
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Services Overview */}
-      <section className="py-24 bg-cream">
-        <div className="max-w-7xl mx-auto px-6">
-          <FadeIn className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl text-sage-deep mb-4">Our Care Services</h2>
-            <p className="eyebrow text-gold-deep">What We Offer</p>
+      <section aria-label="Why families trust The Meadows" className="bg-sage-deep text-white">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 px-5 py-5 sm:grid-cols-2 sm:px-8 lg:grid-cols-5 lg:px-12 lg:py-7">
+          {trustPoints.map(({ icon: Icon, title, detail }, index) => (
+            <div
+              key={title}
+              className={`flex min-w-0 items-center gap-4 border-white/15 py-4 sm:px-5 lg:items-start lg:gap-3 lg:py-1 ${index > 0 ? 'border-t sm:border-t-0' : ''} ${index % 2 === 1 ? 'sm:border-l' : ''} ${index > 1 ? 'sm:border-t lg:border-t-0' : ''} ${index > 0 ? 'lg:border-l' : ''}`}
+            >
+              <Icon aria-hidden="true" size={25} strokeWidth={1.6} className="shrink-0 text-gold-soft" />
+              <div className="min-w-0">
+                <p className="text-sm font-bold leading-5">{title}</p>
+                <p className="mt-1 text-xs leading-5 text-white/70">{detail}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="bg-cream py-20 sm:py-24 lg:py-28">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
+          <FadeIn className="mx-auto mb-12 max-w-2xl text-center sm:mb-14">
+            <p className="mb-4 text-xs font-bold uppercase text-gold-deep sm:text-sm">
+              Compassionate Care for a Brighter Tomorrow
+            </p>
+            <h2 className="mb-5 text-3xl text-sage-deep sm:text-4xl lg:text-5xl">Our Care Services</h2>
+            <p className="text-base leading-7 text-text-mid sm:text-lg sm:leading-8">
+              We provide high-quality, person-centred care in a warm and welcoming environment, supporting each individual to live life to the full.
+            </p>
           </FadeIn>
 
-          <StaggerContainer className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                icon: Heart,
-                title: "Residential Care",
-                desc: "Supporting daily living in a safe, comfortable, and homely environment with 24-hour qualified staff.",
-              },
-              {
-                icon: BrainCircuit,
-                title: "Dementia Care",
-                desc: "Specialist, compassionate dementia support with structured routines and a calm, understanding approach.",
-              },
-              {
-                icon: Calendar,
-                title: "Respite Care",
-                desc: "Flexible short-term stays providing expert care for your loved one and essential breathing space for family carers.",
-              }
-            ].map((service, i) => (
-              <StaggerItem key={i}>
-                <div className="bg-white border-t-4 border-sage-light rounded-2xl p-8 shadow-soft hover:shadow-mid transition-all duration-300 transform hover:-translate-y-2 h-full flex flex-col group">
-                  <div className="w-14 h-14 rounded-full bg-sage-pale flex items-center justify-center text-sage-deep mb-6 group-hover:scale-110 transition-transform">
-                    <service.icon size={28} />
+          <StaggerContainer className="grid gap-5 md:grid-cols-3 lg:gap-7">
+            {careServices.map(({ icon: Icon, title, description }) => (
+              <StaggerItem key={title} className="h-full">
+                <article className="group flex h-full flex-col rounded-lg border border-sage-light/25 bg-cream-warm p-7 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-sage-light/60 hover:shadow-mid sm:p-8">
+                  <div className="mb-8 flex h-14 w-14 items-center justify-center rounded-full border border-sage-light/35 bg-white text-sage-deep">
+                    <Icon aria-hidden="true" size={27} strokeWidth={1.7} />
                   </div>
-                  <h3 className="text-2xl mb-4 text-text-dark">{service.title}</h3>
-                  <p className="text-text-mid mb-8 flex-1">{service.desc}</p>
+                  <h3 className="mb-4 text-2xl text-sage-deep">{title}</h3>
+                  <p className="mb-8 flex-1 text-base leading-7 text-text-mid">{description}</p>
                   <Link
                     to={ROUTES.care}
-                    className="text-sage-deep font-bold tracking-wide hover:text-gold-deep flex items-center transition-colors mt-auto"
+                    aria-label={`Learn more about ${title.toLowerCase()}`}
+                    className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-sage-light/40 bg-white text-sage-deep transition-colors group-hover:border-sage-deep group-hover:bg-sage-deep group-hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sage-deep"
                   >
-                    Find Out More <span className="ml-2 transition-transform group-hover:translate-x-1">→</span>
+                    <ArrowUpRight aria-hidden="true" size={20} />
                   </Link>
-                </div>
+                </article>
               </StaggerItem>
             ))}
           </StaggerContainer>
-        </div>
-      </section>
 
-      {/* Why Families Choose Us */}
-      <section className="py-24 bg-sage-pale">
-        <div className="max-w-7xl mx-auto px-6">
-          <FadeIn className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl text-sage-deep mb-4">Why Families Choose Us</h2>
-          </FadeIn>
-
-          <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              "CQC Rated Good by independent inspectors",
-              "Highly trained, experienced, and compassionate staff",
-              "Beautiful accessible gardens and outdoor spaces",
-              "Tailored care plans reviewed regularly with families",
-              "Enriching daily activities, outings, and social events",
-              "Open, honest communication with families at all times"
-            ].map((text, i) => (
-              <StaggerItem key={i}>
-                <div className="bg-white/60 hover:bg-white rounded-2xl p-6 flex items-start gap-4 transition-all duration-300 shadow-[0_4px_20px_rgba(122,158,126,0.05)] hover:shadow-[0_8px_30px_rgba(122,158,126,0.12)] hover:-translate-y-1 border border-sage-light/20">
-                  <div className="mt-1 w-8 h-8 shrink-0 rounded-full bg-sage flex items-center justify-center text-white">
-                    <CheckCircle2 size={16} />
-                  </div>
-                  <p className="text-text-dark font-medium leading-relaxed">{text}</p>
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-        </div>
-      </section>
-
-      {/* Home Introduction */}
-      <section className="py-24 bg-cream overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-16">
-          <FadeIn className="lg:w-1/2 space-y-6">
-            <h2 className="text-3xl md:text-5xl text-sage-deep leading-tight">A Place to Call Home</h2>
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-sage-light/20 text-sage-deep rounded-full text-sm font-bold tracking-wide border border-sage-light/30">
-              ✓ CQC Rated: Good
-            </div>
-            <p className="text-lg text-text-mid">
-              We understand that moving into a care home is a significant transition. That’s why we have designed The Meadows to feel like a true community home right in the heart of Scartho, Grimsby. 
-            </p>
-            <p className="text-lg text-text-mid mb-8">
-              With a capacity for just 36 residents, we maintain a close-knit, homely atmosphere. From our beautiful, accessible gardens to our comfortable lounges, every space is designed for comfort. Above all, our ethos is simple: every resident is a unique individual, and we treat them with the respect and warmth they deserve.
-            </p>
-            <Link
-              to={ROUTES.theHome}
-              className="inline-flex items-center gap-2 bg-text-dark hover:bg-sage-deep text-white px-8 py-4 rounded-full font-bold transition-all hover:shadow-lg"
-            >
-              Discover The Home →
-            </Link>
-          </FadeIn>
-          
-          <FadeIn className="lg:w-1/2 relative">
-            <div className="absolute inset-0 bg-sage-light/20 rounded-[2rem] transform translate-x-4 translate-y-4" />
-            <img referrerPolicy="no-referrer" 
-              src="https://images.unsplash.com/photo-1756312177475-eb9a92b6dc4f?auto=format&fit=crop&w=1200&q=82" 
-              alt="Older woman tending a small plant in a bright garden setting" 
-              className="relative rounded-[2rem] shadow-xl w-full object-cover aspect-[4/3] transform transition-transform hover:scale-[1.02] duration-700"
-              loading="lazy"
-            />
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="py-24 bg-cream-warm">
-        <div className="max-w-7xl mx-auto px-6">
-          <FadeIn className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl text-sage-deep">What Families Say</h2>
-          </FadeIn>
-
-          <StaggerContainer className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                text: "The staff at The Meadows treated Mum like she was one of their own family. From the moment we arrived for our first visit, we knew it was the right place. We have total peace of mind.",
-                author: "Sarah T. — Daughter of Resident"
-              },
-              {
-                text: "Dad has flourished since moving in. He's more social, happier, and the team always keep us updated. The garden is his favourite spot — he's out there every morning.",
-                author: "James R. — Son of Resident"
-              },
-              {
-                text: "When we needed emergency respite care, The Meadows stepped in without hesitation. The care was exceptional and the staff were so kind and patient with Mum.",
-                author: "Carol M. — Family Carer"
-              }
-            ].map((testimonial, i) => (
-              <StaggerItem key={i}>
-                <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-10 shadow-soft relative h-full flex flex-col transition-transform duration-300 hover:-translate-y-2 border border-sage-pale">
-                  <span className="text-6xl text-sage-light/30 absolute top-4 left-6 font-serif leading-none">"</span>
-                  <div className="flex gap-1 mb-6 relative z-10">
-                    {[...Array(5)].map((_, idx) => <Star key={idx} size={18} className="fill-gold text-gold" />)}
-                  </div>
-                  <p className="text-text-mid italic mb-8 relative z-10 flex-1">{testimonial.text}</p>
-                  <p className="text-sm font-bold text-text-dark tracking-wide uppercase">{testimonial.author}</p>
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-        </div>
-      </section>
-
-      {/* Contact Strip */}
-      <section className="py-20 bg-sage text-white text-center">
-        <div className="max-w-4xl mx-auto px-6">
-          <FadeIn>
-            <h2 className="text-3xl md:text-4xl text-white mb-6">Ready to Find Out More?</h2>
-            <p className="text-lg text-sage-pale mb-10 max-w-2xl mx-auto">
-              We'd love to show you around. Call us today or send a message and we'll get back to you promptly.
-            </p>
-            <div className="flex flex-col md:flex-row items-center justify-center gap-8 mb-10">
-              <TrackedLink
-                href={business.telephoneHref}
-                event="phone_call_clicked"
-                eventParams={{ button_location: 'home_contact_strip', link_type: 'tel' }}
-                className="text-3xl font-serif font-bold hover:text-gold-soft transition-colors"
-              >
-                {business.telephone}
-              </TrackedLink>
-              <span className="hidden md:block w-px h-8 bg-sage-light/40" />
-              <TrackedLink
-                href={business.emailHref}
-                event="email_clicked"
-                eventParams={{ button_location: 'home_contact_strip', link_type: 'mailto' }}
-                className="text-lg hover:text-gold-soft transition-colors"
-              >
-                {business.email}
-              </TrackedLink>
-            </div>
-            <TrackedButton
-              event="book_a_visit_clicked"
-              eventParams={{ button_location: 'home_contact_strip' }}
-              onClick={() => navigate(ROUTES.contact)}
-              className="px-8 py-4 bg-gold hover:bg-gold-deep text-white font-bold rounded-full transition-all shadow-[0_0_20px_rgba(200,169,110,0.4)] hover:-translate-y-1"
-            >
-              Arrange a Visit
-            </TrackedButton>
-          </FadeIn>
+          <p className="mt-14 border-t border-sage-light/30 pt-8 text-center font-serif text-xl text-sage-deep sm:text-2xl">
+            A Family Feel, A Higher Standard
+          </p>
         </div>
       </section>
     </div>
