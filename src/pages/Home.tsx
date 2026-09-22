@@ -6,10 +6,8 @@ import { TrackedButton } from '../components/tracking/TrackedButton';
 import { ROUTES } from '../lib/routes';
 import { business } from '../lib/siteConfig';
 import { Seo } from '../components/seo/Seo';
-import { useState } from 'react';
 
 export default function Home() {
-  const [heroError, setHeroError] = useState(false);
   const navigate = useNavigate();
 
   return (
@@ -20,21 +18,19 @@ export default function Home() {
         path={ROUTES.home}
       />
       {/* Hero Section */}
-      <section className="relative flex min-h-[690px] h-auto items-center overflow-hidden md:h-[92vh] md:min-h-[720px]">
+      <section className="relative flex min-h-[690px] items-center overflow-hidden md:min-h-[680px] md:h-[86vh]">
         <div className="absolute inset-0 w-full h-full">
-          <img referrerPolicy="no-referrer" 
-            src={heroError ? "https://www.nelincs.gov.uk/assets/uploads/2024/01/Weelsby-woods-area-page-scaled.jpg" : "/hero-image.jpg"} 
-            alt="Green open space at Weelsby Woods in Grimsby" 
-            className="object-cover object-center w-full h-full"
+          <img
+            src={`${import.meta.env.BASE_URL}hero-image.png.jpeg`}
+            alt="The Meadows Care Home building and sign in Scartho, Grimsby"
+            className="object-cover object-[35%_center] md:object-center w-full h-full"
             loading="eager"
-            onError={() => setHeroError(true)}
             />
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(23,45,31,0.86)_0%,rgba(23,45,31,0.76)_52%,rgba(23,45,31,0.68)_100%)] md:bg-[linear-gradient(90deg,rgba(23,45,31,0.88)_0%,rgba(23,45,31,0.72)_42%,rgba(23,45,31,0.42)_100%)]" />
-          <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-sage-deep/45 to-transparent" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(15,32,22,0.24)_0%,rgba(15,32,22,0.62)_44%,rgba(15,32,22,0.88)_100%)] md:bg-[linear-gradient(90deg,rgba(15,32,22,0.12)_0%,rgba(15,32,22,0.25)_35%,rgba(15,32,22,0.82)_72%,rgba(15,32,22,0.9)_100%)]" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto w-full px-4 pt-32 pb-14 sm:px-6 sm:pt-36 md:px-6 md:pt-28 md:pb-16 lg:px-12">
-          <div className="max-w-3xl text-left">
+        <div className="relative z-10 max-w-7xl mx-auto w-full px-4 pt-32 pb-10 sm:px-6 md:px-8 md:pt-24 md:pb-12 lg:px-12">
+          <div className="max-w-2xl ml-auto text-left">
             <StaggerContainer>
               <StaggerItem>
                 <div className="mb-7 flex flex-wrap items-center gap-3">

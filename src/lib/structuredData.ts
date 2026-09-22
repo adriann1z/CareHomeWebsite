@@ -53,7 +53,7 @@ export function buildLocalBusinessJsonLd() {
       '@type': 'City',
       name: 'Grimsby',
     },
-    image: `${SITE_URL}/hero-image.jpg`,
+    image: `${SITE_URL}/hero-image.png.jpeg`,
     // sameAs (social profiles) intentionally omitted — none are confirmed in the repo.
     // See docs/business-info-checklist.md.
   } as const;

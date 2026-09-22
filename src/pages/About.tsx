@@ -29,10 +29,10 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-16">
           <FadeIn className="lg:w-1/2 relative group">
             <div className="absolute inset-0 hidden sm:block bg-sage-pale rounded-[2rem] transform -translate-x-4 -translate-y-4 transition-transform group-hover:translate-x-0 group-hover:translate-y-0 duration-500" />
-            <img referrerPolicy="no-referrer" 
-              src="/imagemeadows.png" 
+            <img
+              src={`${import.meta.env.BASE_URL}hero-image.png.jpeg`}
               alt="The Meadows Care Home exterior and sign" 
-              className="relative rounded-[1.5rem] sm:rounded-[2rem] shadow-mid w-full object-cover object-[18%_center] aspect-[4/3]"
+              className="relative rounded-[1.5rem] sm:rounded-[2rem] shadow-mid w-full object-cover object-center aspect-[4/3]"
               loading="lazy"
             />
           </FadeIn>
