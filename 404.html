@@ -184,34 +184,35 @@
 
       @media (max-width: 639px) {
         main > div.w-full > section:first-of-type:has(> img) {
-          min-height: 820px;
+          min-height: 720px;
           background: #12382a;
         }
 
         main > div.w-full > section:first-of-type:has(> img) > img {
           top: 0;
-          bottom: auto;
-          height: 300px !important;
+          bottom: 0;
+          height: 100% !important;
           object-fit: cover;
           object-position: left center !important;
         }
 
         .hero-overlay {
           top: 0;
-          bottom: auto !important;
-          height: 300px;
-          background: linear-gradient(180deg, rgba(9, 28, 20, .18), rgba(9, 28, 20, .05));
+          bottom: 0 !important;
+          height: 100%;
+          background: linear-gradient(180deg, rgba(9, 28, 20, .12) 0%, rgba(9, 28, 20, .28) 34%, rgba(9, 28, 20, .82) 58%, rgba(9, 28, 20, .94) 100%);
         }
 
         .hero-content {
-          min-height: 820px;
-          align-items: flex-start;
-          padding: 334px 20px 78px;
+          min-height: 720px;
+          align-items: flex-end;
+          padding: 210px 20px 66px;
         }
 
+        .hero-content-inner { margin: 0 auto; align-self: flex-end; }
         .hero-badge { gap: 9px; padding: 9px 13px; font-size: 10px; }
-        .hero-care-label { margin: 20px 0 14px; font-size: 12px; }
-        .hero-heading { margin-bottom: 16px; font-size: 36px; line-height: 1.04; }
+        .hero-care-label { margin: 18px 0 12px; font-size: 12px; }
+        .hero-heading { margin-bottom: 14px; font-size: 34px; line-height: 1.04; }
         .hero-description { margin-bottom: 22px; font-size: 15px; line-height: 1.5; }
         .hero-actions { flex-direction: column; align-items: center; }
         .hero-button { width: 190px; height: 48px; }
