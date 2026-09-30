@@ -234,13 +234,20 @@
       }
 
       @media (min-width: 1024px) {
-        main > div.w-full > section:first-of-type {
+        main > div.w-full > section:first-of-type:has(> img) {
           height: calc(100svh - 128px);
           min-height: 690px;
         }
 
-        main > div.w-full > section:first-of-type > img {
+        main > div.w-full > section:first-of-type:has(> img) > img {
           object-position: center 50% !important;
+        }
+
+        main > div.w-full > section:first-of-type:not(:has(> img)) {
+          height: 360px !important;
+          min-height: 360px !important;
+          padding-top: 96px !important;
+          padding-bottom: 40px !important;
         }
 
         section[aria-label="Why families trust The Meadows"] {
@@ -250,6 +257,15 @@
         section[aria-label="Why families trust The Meadows"] > div {
           height: 100%;
           align-items: center;
+        }
+      }
+
+      @media (max-width: 1023px) {
+        main > div.w-full > section:first-of-type:not(:has(> img)) {
+          height: auto !important;
+          min-height: 300px !important;
+          padding-top: 96px !important;
+          padding-bottom: 40px !important;
         }
       }
     </style>
