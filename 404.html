@@ -22,9 +22,71 @@
       property="og:description"
       content="A warm, CQC-rated care home in Scartho, Grimsby offering residential care, dementia care and respite care for up to 36 residents."
     />
-    <meta property="og:image" content="/CareHomeWebsite/hero-image.png.jpeg" />
-    <script type="module" crossorigin src="/CareHomeWebsite/assets/index-GOcb3Tue.js"></script>
-    <link rel="stylesheet" crossorigin href="/CareHomeWebsite/assets/index-C59gHeTt.css">
+    <meta property="og:image" content="./imagemeadows.png" />
+    <script type="module" crossorigin src="./assets/index-GOcb3Tue.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-C59gHeTt.css">
+    <style>
+      [aria-label="Cookie consent"] {
+        padding: 0 !important;
+      }
+
+      [aria-label="Cookie consent"] > div {
+        width: 100%;
+        max-width: none !important;
+        margin: 0 !important;
+        padding: 24px clamp(24px, 5vw, 72px) !important;
+        border-width: 1px 0 0 !important;
+        border-radius: 0 !important;
+        box-shadow: 0 -18px 50px rgba(18, 46, 34, 0.18) !important;
+      }
+
+      @media (min-width: 768px) {
+        [aria-label="Cookie consent"] > div {
+          display: grid;
+          grid-template-columns: minmax(280px, 0.9fr) minmax(520px, 1.35fr);
+          column-gap: clamp(32px, 5vw, 80px);
+          align-items: center;
+        }
+
+        [aria-label="Cookie consent"] h2,
+        [aria-label="Cookie consent"] p {
+          grid-column: 1;
+        }
+
+        [aria-label="Cookie consent"] h2 {
+          margin-bottom: 6px !important;
+        }
+
+        [aria-label="Cookie consent"] p {
+          margin-bottom: 0 !important;
+        }
+
+        [aria-label="Cookie consent"] > div > div {
+          grid-column: 2;
+          grid-row: 1 / span 2;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        main > div.w-full > section:first-of-type {
+          height: calc(100svh - 128px);
+          min-height: 690px;
+        }
+
+        main > div.w-full > section:first-of-type > img {
+          object-position: center 50% !important;
+        }
+
+        section[aria-label="Why families trust The Meadows"] {
+          height: 128px;
+        }
+
+        section[aria-label="Why families trust The Meadows"] > div {
+          height: 100%;
+          align-items: center;
+        }
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
