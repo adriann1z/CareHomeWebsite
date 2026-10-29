@@ -182,10 +182,26 @@
         .hero-heading { font-size: 52px; }
       }
 
+      main > div.w-full > section:first-of-type:has(> img) {
+        background-color: #12382a;
+        background-image: url("./imagemeadows.png");
+        background-position: center 50%;
+        background-repeat: no-repeat;
+        background-size: 96% auto;
+      }
+
+      main > div.w-full > section:first-of-type:has(> img) > img {
+        opacity: 0;
+      }
+
       @media (max-width: 639px) {
         main > div.w-full > section:first-of-type:has(> img) {
           min-height: 720px;
           background: #12382a;
+          background-image: url("./imagemeadows.png");
+          background-position: left top;
+          background-repeat: no-repeat;
+          background-size: auto 96%;
         }
 
         main > div.w-full > section:first-of-type:has(> img) > img {
