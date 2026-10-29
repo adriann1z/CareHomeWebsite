@@ -1,5 +1,18 @@
 import { useEffect } from 'react';
-import { BedDouble, Armchair, UtensilsCrossed, TreeDeciduous, Paintbrush, BookOpen } from 'lucide-react';
+import {
+  BedDouble,
+  Armchair,
+  UtensilsCrossed,
+  TreeDeciduous,
+  Paintbrush,
+  BookOpen,
+  Clock3,
+  Coffee,
+  SunMedium,
+  CloudSun,
+  UserRound,
+  HeartHandshake,
+} from 'lucide-react';
 import { FadeIn, StaggerContainer, StaggerItem } from '../components/FadeIn';
 import { Seo } from '../components/seo/Seo';
 import { ROUTES } from '../lib/routes';
@@ -102,37 +115,137 @@ export default function TheHome() {
         </div>
       </section>
 
-      {/* Life at The Meadows (Timeline) */}
-      <section className="py-24 bg-cream-warm overflow-hidden">
-        <div className="max-w-4xl mx-auto px-6">
-          <FadeIn className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl text-sage-deep mb-6">A Typical Day at The Meadows</h2>
-            <p className="text-lg font-medium text-text-dark bg-white/50 inline-block px-6 py-3 rounded-full border border-sage-light/20">
-              Every day is flexible. We follow each resident's own preferences and natural rhythms.
+      {/* A Typical Day */}
+      <section className="py-24 bg-cream-warm overflow-hidden" aria-labelledby="typical-day-heading">
+        <div className="max-w-6xl mx-auto px-6">
+          <FadeIn className="max-w-3xl mx-auto text-center mb-12 md:mb-16">
+            <span className="eyebrow text-gold-deep block mb-3">Life at The Meadows</span>
+            <h2 id="typical-day-heading" className="text-3xl md:text-5xl text-sage-deep mb-6">
+              A Typical Day at The Meadows
+            </h2>
+            <p className="text-xl md:text-2xl font-serif text-text-dark mb-5">
+              At The Meadows, every day is centred around the individual.
+            </p>
+            <p className="text-lg text-text-mid leading-relaxed">
+              We understand that everyone has their own preferences, routines and choices. Our approach to care is person-centred, meaning that each resident is supported to enjoy their day in a way that suits their individual needs, wishes and lifestyle.
             </p>
           </FadeIn>
 
-          <FadeIn>
-            <div className="relative border-l-2 border-sage-light/60 ml-4 md:ml-1/2 md:-translate-x-1 py-4">
-              {[
-                { time: "Morning", title: "Morning Routine", desc: "A gentle wake-up with support as needed. Tea in bed, reading the paper, or an early walk in the garden." },
-                { time: "9:00 AM", title: "Breakfast", desc: "A nutritious and hearty breakfast shared in the dining room or enjoyed privately in their room." },
-                { time: "11:00 AM", title: "Activities", desc: "Engaging in mind-stimulating tasks, gentle movement classes, or local community visits." },
-                { time: "1:00 PM", title: "Lunch", desc: "The main meal of the day, freshly prepared by our skilled kitchen team using seasonal ingredients." },
-                { time: "3:00 PM", title: "Afternoon Leisure", desc: "Family visits, quiet reading, watching a film, or afternoon tea and cake." },
-                { time: "6:00 PM", title: "Evening Meal", desc: "A lighter supper marking the transition to the evening, providing an opportunity for conversation." },
-                { time: "Evening", title: "Wind Down", desc: "Relaxing in the lounges before being supported with evening routines whenever they prefer to retire." }
-              ].map((step, i) => (
-                <div key={i} className="mb-10 last:mb-0 relative pl-8 md:pl-0 w-full group">
-                  <div className="absolute left-[-9px] md:left-1/2 md:-ml-[9px] top-1 w-4 h-4 rounded-full bg-gold border-[3px] border-cream-warm group-hover:scale-125 transition-transform" />
-                  
-                  <div className={`md:w-[45%] ${i % 2 === 0 ? 'md:ml-auto md:pl-8' : 'md:mr-auto md:pr-8 md:text-right'}`}>
-                    <span className="text-sm font-bold tracking-widest uppercase text-sage-deep block mb-1">{step.time}</span>
-                    <h3 className="text-xl font-serif text-text-dark mb-2">{step.title}</h3>
-                    <p className="text-text-mid leading-relaxed">{step.desc}</p>
+          <FadeIn className="mb-10 md:mb-14">
+            <div className="bg-white rounded-[2rem] shadow-soft border border-sage-light/15 p-6 sm:p-8 md:p-10">
+              <div className="grid lg:grid-cols-[0.75fr_1.25fr] gap-8 lg:gap-12 items-start">
+                <div>
+                  <div className="w-12 h-12 rounded-xl bg-gold-soft text-sage-deep flex items-center justify-center mb-5">
+                    <UtensilsCrossed size={24} aria-hidden="true" />
+                  </div>
+                  <h3 className="text-2xl md:text-3xl text-sage-deep mb-4">Our Daily Mealtimes</h3>
+                  <p className="text-text-mid leading-relaxed mb-6">
+                    While we have general mealtimes and planned activities throughout the day, these are always flexible to ensure residents have choice and control over their daily routines.
+                  </p>
+                  <div className="flex gap-3 rounded-2xl bg-sage-pale p-4 text-sage-deep">
+                    <Coffee className="shrink-0 mt-0.5" size={21} aria-hidden="true" />
+                    <p className="font-bold leading-relaxed">Snacks and refreshments are available 24 hours a day.</p>
                   </div>
                 </div>
-              ))}
+
+                <div className="overflow-hidden rounded-2xl border border-sage-light/25">
+                  <table className="w-full border-collapse text-left">
+                    <caption className="sr-only">The Meadows usual daily mealtimes</caption>
+                    <thead>
+                      <tr className="bg-sage-deep text-white">
+                        <th scope="col" className="px-4 sm:px-6 py-4 text-sm uppercase tracking-wider font-bold">Time</th>
+                        <th scope="col" className="px-4 sm:px-6 py-4 text-sm uppercase tracking-wider font-bold">Meal</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-sage-light/20">
+                      {[
+                        { time: '8:00am – 10:00am', meal: 'Breakfast' },
+                        { time: 'Around 11:00am', meal: 'Morning coffee and snacks' },
+                        { time: '12:00pm – 1:00pm', meal: 'Lunch – a freshly prepared hot meal' },
+                        { time: 'Around 2:30pm', meal: 'Afternoon tea' },
+                        { time: '4:00pm – 6:00pm', meal: 'Evening meal' },
+                        { time: '7:00pm – 8:00pm', meal: 'Supper' },
+                      ].map((item) => (
+                        <tr key={item.time} className="odd:bg-white even:bg-sage-pale/45">
+                          <th scope="row" className="px-4 sm:px-6 py-4 align-top text-sage-deep font-bold sm:whitespace-nowrap">
+                            {item.time}
+                          </th>
+                          <td className="px-4 sm:px-6 py-4 text-text-mid leading-relaxed">{item.meal}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <p className="mt-8 pt-7 border-t border-sage-light/20 text-text-mid leading-relaxed">
+                These times are simply a guide to our usual daily routine. Residents are always welcome to enjoy their meals at different times if they prefer. We recognise that everyone has different appetites, preferences and routines, and we aim to accommodate these wherever possible.
+              </p>
+            </div>
+          </FadeIn>
+
+          <FadeIn className="mb-10 md:mb-14">
+            <div className="grid lg:grid-cols-2 gap-6 md:gap-8">
+              <div className="rounded-[2rem] bg-sage-pale border border-sage-light/15 p-6 sm:p-8 md:p-10">
+                <div className="flex items-center gap-4 mb-5">
+                  <div className="w-12 h-12 rounded-xl bg-white text-sage-deep flex items-center justify-center shadow-soft">
+                    <Clock3 size={24} aria-hidden="true" />
+                  </div>
+                  <h3 className="text-2xl md:text-3xl text-sage-deep">Activities and Meaningful Engagement</h3>
+                </div>
+                <p className="text-text-mid leading-relaxed mb-6">
+                  We offer a variety of activities throughout the day to promote wellbeing, enjoyment, social interaction and independence.
+                </p>
+                <p className="font-bold text-text-dark mb-4">Our usual group activity sessions take place around:</p>
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div className="bg-white rounded-2xl p-5 border border-sage-light/20">
+                    <SunMedium className="text-gold-deep mb-3" size={25} aria-hidden="true" />
+                    <p className="font-bold text-sage-deep">10:30am – 11:30am</p>
+                    <p className="text-text-mid mt-1">Morning activities</p>
+                  </div>
+                  <div className="bg-white rounded-2xl p-5 border border-sage-light/20">
+                    <CloudSun className="text-gold-deep mb-3" size={25} aria-hidden="true" />
+                    <p className="font-bold text-sage-deep">2:30pm – 3:30pm</p>
+                    <p className="text-text-mid mt-1">Afternoon activities</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="rounded-[2rem] bg-white border border-sage-light/15 p-6 sm:p-8 md:p-10 shadow-soft">
+                <div className="w-12 h-12 rounded-xl bg-gold-soft text-sage-deep flex items-center justify-center mb-5">
+                  <UserRound size={24} aria-hidden="true" />
+                </div>
+                <h3 className="text-2xl md:text-3xl text-sage-deep mb-5">Personalised Time</h3>
+                <p className="text-text-mid leading-relaxed mb-5">
+                  Activities are planned around residents' individual interests, abilities and preferences, with everyone encouraged to participate in ways that are meaningful and enjoyable to them.
+                </p>
+                <p className="text-text-mid leading-relaxed">
+                  <strong className="text-text-dark">One-to-one activities and individual support</strong> are generally provided outside of our planned group activity sessions. This allows residents to enjoy personalised time, whether that involves a favourite hobby, a conversation, a walk, or simply spending quality time with a member of our team.
+                </p>
+              </div>
+            </div>
+          </FadeIn>
+
+          <FadeIn>
+            <div className="relative overflow-hidden rounded-[2rem] bg-sage-deep px-6 py-10 sm:p-10 md:p-14 text-center shadow-mid">
+              <div className="absolute -top-16 -right-16 w-48 h-48 rounded-full bg-gold/10" aria-hidden="true" />
+              <div className="absolute -bottom-20 -left-20 w-56 h-56 rounded-full bg-white/5" aria-hidden="true" />
+              <div className="relative max-w-3xl mx-auto">
+                <HeartHandshake className="mx-auto text-gold mb-5" size={38} aria-hidden="true" />
+                <h3 className="text-3xl md:text-4xl text-white mb-6">Your Day, Your Choice</h3>
+                <p className="text-lg text-sage-pale leading-relaxed mb-5">
+                  At The Meadows, we believe that living in a care home should not mean giving up the routines, choices and independence that make each person unique.
+                </p>
+                <p className="text-lg text-sage-pale leading-relaxed mb-7">
+                  Residents are supported to make their own decisions about when they get up, when they eat, how they spend their time and when they wish to rest.
+                </p>
+                <p className="text-xl md:text-2xl font-serif text-white mb-7">
+                  Our daily routine provides structure, but it is always the individual who comes first.
+                </p>
+                <p className="text-sm font-bold uppercase tracking-[0.18em] text-gold-soft">
+                  The Meadows – Person-Centred Care, Every Day.
+                </p>
+              </div>
             </div>
           </FadeIn>
         </div>
