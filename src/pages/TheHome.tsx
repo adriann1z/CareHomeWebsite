@@ -261,31 +261,47 @@ export default function TheHome() {
           <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[280px]">
             {[
               {
-                src: "https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=1000&q=82",
-                alt: "Warm lounge with comfortable seating and soft natural light",
+                src: `${import.meta.env.BASE_URL}assets/gallery/garden.jpg`,
+                alt: "The Meadows enclosed garden with lawn, seating and raised planting",
               },
               {
-                src: "https://www.nelincs.gov.uk/assets/uploads/2024/01/Weelsby-woods-area-page-scaled.jpg",
-                alt: "Green woodland and open grass in Grimsby",
+                src: `${import.meta.env.BASE_URL}assets/gallery/lounge.jpg`,
+                alt: "Bright communal lounge with residents and care staff",
               },
               {
-                src: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1000&q=82",
-                alt: "Elegant dining room arranged for a welcoming meal",
+                src: `${import.meta.env.BASE_URL}assets/gallery/courtyard.jpg`,
+                alt: "The Meadows enclosed courtyard garden and outdoor seating",
               },
               {
-                src: "https://images.unsplash.com/photo-1730295003936-1f0666fe6707?auto=format&fit=crop&w=1000&q=82",
-                alt: "Older adult painting during a creative activity",
+                src: `${import.meta.env.BASE_URL}assets/gallery/table-setting-close-up.jpeg`,
+                alt: "Close-up of a dining table set with white tableware, flowers and wine glasses",
               },
               {
-                src: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=82",
-                alt: "Calm, neatly made bedroom with soft neutral furnishings",
+                src: `${import.meta.env.BASE_URL}assets/gallery/dining-table-window.jpeg`,
+                alt: "Dining table set for four beside bright garden-facing windows",
               },
               {
-                src: "https://images.unsplash.com/photo-1774537969499-f6904c24cad2?auto=format&fit=crop&w=1000&q=82",
-                alt: "Older woman being supported outdoors in a garden",
+                src: `${import.meta.env.BASE_URL}assets/gallery/dining-room-wide.jpeg`,
+                alt: "The Meadows dining room with several accessible tables laid for residents",
+              },
+              {
+                src: `${import.meta.env.BASE_URL}assets/gallery/lounge-seating.jpeg`,
+                alt: "Comfortable lounge seating with armchairs, soft lighting and garden views",
+              },
+              {
+                src: `${import.meta.env.BASE_URL}assets/gallery/resident-bedroom.jpeg`,
+                alt: "Bright resident bedroom with a single bed, armchair and personal furnishings",
+              },
+              {
+                src: `${import.meta.env.BASE_URL}assets/gallery/main-lounge.jpeg`,
+                alt: "Spacious main lounge with comfortable armchairs and doors opening onto the garden",
+              },
+              {
+                src: `${import.meta.env.BASE_URL}assets/gallery/connecting-lounges.jpeg`,
+                alt: "Two connected lounge areas with comfortable seating and warm natural light",
               },
             ].map((image, i) => (
-              <StaggerItem key={i} className={`rounded-[2rem] overflow-hidden shadow-soft relative group ${i === 1 || i === 4 ? 'lg:col-span-2' : ''}`}>
+              <StaggerItem key={i} className="aspect-[4/3] rounded-[2rem] overflow-hidden shadow-soft relative group">
                 <div className="absolute inset-0 bg-sage-deep/10 group-hover:bg-transparent transition-colors z-10 pointer-events-none" />
                 <img referrerPolicy="no-referrer" 
                   src={image.src} 

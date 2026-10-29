@@ -66,10 +66,10 @@ export default function Care() {
 
           <FadeIn className="lg:w-1/2 relative z-10 group">
             <div className="absolute inset-0 hidden sm:block border-2 border-sage-light/30 rounded-[2rem] transform translate-x-4 translate-y-4 transition-transform group-hover:translate-x-2 group-hover:translate-y-2 duration-500" />
-            <img referrerPolicy="no-referrer" 
-              src="https://images.unsplash.com/photo-1774537969499-f6904c24cad2?auto=format&fit=crop&w=1200&q=82" 
-              alt="Older woman being gently supported while walking outdoors" 
-              className="relative rounded-[1.5rem] sm:rounded-[2rem] w-full object-cover aspect-square shadow-soft"
+            <img
+              src={`${import.meta.env.BASE_URL}assets/residential-care.jpeg`}
+              alt="Resident enjoying an animal visit and live entertainment at The Meadows"
+              className="relative rounded-[1.5rem] sm:rounded-[2rem] w-full object-cover aspect-[4/3] shadow-soft"
               loading="lazy"
             />
           </FadeIn>
@@ -80,9 +80,9 @@ export default function Care() {
       <section className="py-24 bg-sage-pale overflow-hidden relative">
         <div className="max-w-7xl mx-auto px-6 flex flex-col-reverse lg:flex-row items-center gap-16 relative z-10">
           <FadeIn className="lg:w-1/2 group">
-            <img referrerPolicy="no-referrer" 
-              src="https://images.unsplash.com/photo-1756312177475-eb9a92b6dc4f?auto=format&fit=crop&w=1200&q=82" 
-              alt="Older woman caring for a small plant in a calm garden setting" 
+            <img
+              src={`${import.meta.env.BASE_URL}assets/gallery/lounge.jpg`}
+              alt="Residents and care staff together in a bright communal lounge at The Meadows"
               className="rounded-[1.5rem] sm:rounded-[2rem] w-full object-cover aspect-[4/3] shadow-mid"
               loading="lazy"
             />
@@ -170,9 +170,9 @@ export default function Care() {
 
           <FadeIn className="lg:w-1/2">
             <div className="relative p-3 sm:p-4 md:p-6 bg-white rounded-[1.5rem] sm:rounded-[2rem] shadow-mid">
-              <img referrerPolicy="no-referrer" 
-                src="https://images.unsplash.com/photo-1773418346667-f4e087414ea6?auto=format&fit=crop&w=1200&q=82" 
-                alt="Older person walking through a peaceful garden pathway" 
+              <img
+                src={`${import.meta.env.BASE_URL}assets/gallery/resident-bedroom.jpeg`}
+                alt="A bright, comfortable resident bedroom at The Meadows"
                 className="rounded-2xl w-full object-cover aspect-[4/3] shadow-inner"
                 loading="lazy"
               />
