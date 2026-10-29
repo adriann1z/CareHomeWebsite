@@ -38,7 +38,7 @@ export default function CookiePolicy() {
         path={ROUTES.cookiePolicy}
       />
 
-      <section className="relative h-auto min-h-[300px] pt-24 pb-10 lg:h-[360px] lg:min-h-[360px] flex items-center justify-center bg-sage-deep overflow-hidden">
+      <section className="relative py-20 md:py-28 flex items-center justify-center bg-sage-deep overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-sage-deep via-[#3a613d] to-[#2c4c2f]" />
         <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
           <FadeIn>
